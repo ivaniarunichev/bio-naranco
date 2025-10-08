@@ -14,8 +14,20 @@ class LabData implements Serializable {
         }
         */
 
-    public static void leerTecnicos(String rutaFicheroTSV) {
-        //Cargar el archivo TSV
+    public void leerTecnicos() throws IOException {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("data/in/tecnicos.tsv"));
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("#") || linea.trim().isEmpty()) continue;
+                String[] parts = linea.split("\\t");
+                if (parts.length == 4)
+                    tecnicos.put(parts[0], new Tecnico(parts[0], parts[1], parts[2], parts[3]));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

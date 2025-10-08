@@ -1,13 +1,13 @@
 import java.time.LocalDate;
 
 public class Tecnico {
-    int idTecnico;
-    String nombre;
-    String apellido;
-    String turno;
+    private String idTecnico;
+    private String nombre;
+    private String apellido;
+    private String turno;
 
     //Constructor
-    public Tecnico(int idTecnico, String nombre, String apellido, String turno) {
+    public Tecnico(String idTecnico, String nombre, String apellido, String turno) {
         this.idTecnico = idTecnico;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -15,11 +15,11 @@ public class Tecnico {
     }
 
     //Getters y Setters
-    public int getIdTecnico() {
+    public String getIdTecnico() {
         return idTecnico;
     }
 
-    public void setIdTecnico(int idTecnico) {
+    public void setIdTecnico(String idTecnico) {
         this.idTecnico = idTecnico;
     }
 

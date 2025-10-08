@@ -1,3 +1,4 @@
+#idPaciente,nombre,apellido,fechaNac(YYYY-MM-DD)
 P001,Alicia,Pérez,1988-04-12
 P002,Luis,Gómez,1979-11-05
 P003,Eva,Díaz,1993-06-21
