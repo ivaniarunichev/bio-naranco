@@ -1,8 +1,9 @@
 import java.io.Serializable;
+import java.util.HashMap;
 
 class LabData implements Serializable {
         //private HashMap<...> pacientes;
-        //    private HashMap<...> tecnicos;
+        private HashMap<String, Tecnico> tecnicos = new HashMap<>();
         //    private List<...> muestras;
 
         /* Carga los datos en los arrays leyendo los ficheros de entrada en ./data/in
@@ -12,7 +13,7 @@ class LabData implements Serializable {
 
         }
 
-        public ...
+        public
 
         leerTecnicos() {
 
