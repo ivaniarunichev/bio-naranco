@@ -21,7 +21,7 @@ class LabData implements Serializable {
 
             while ((linea = br.readLine()) != null){
                 if (linea.startsWith("#") || linea.trim().isEmpty())continue;
-                String[] parte = linea.split("\\t");
+                String[] parte = linea.split(",");
                 if (parte.length == 4){
                     pacientes.put(parte[0], new Paciente(parte[0], parte[1], parte[2], parte[3]));
                 }
@@ -60,7 +60,7 @@ class LabData implements Serializable {
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (linea.startsWith("#") || linea.trim().isEmpty()) continue;
-                String[] parte = linea.split("\\t");
+                String[] parte = linea.split("\\|");
                 if (parte.length == 6)
                     muestras.add(new Muestra(parte[0], parte[1], parte[2], parte[3], parte[4], Integer.parseInt(parte[5])));
             }
@@ -70,13 +70,50 @@ class LabData implements Serializable {
     }
 
         /*
-         * Escribe los datos generando los ficheros de salida en ./data/out
+         * Escribe los datos generando los ficheros de salida en ./data/out*/
+
 
 
         public void generarMuestrasConsolidado() {
+            try {
+
+                File carpeta = new File("data/out");
+                if (!carpeta.exists()) carpeta.mkdir();
+
+                PrintWriter pw = new PrintWriter("data/out/muestras_consolidado.csv");
+                pw.println("#idMuestra|idPaciente|idTecnico|tipo(Sangre/Orina/Saliva)|estado(Recepcionada/Procesada/Rechazada)|vol_ml");
+
+                for (Muestra m : muestras){
+                    Paciente p = pacientes.get(m.getIdPaciente());
+                    Tecnico t = tecnicos.get(m.getIdTecnico());
+
+                    if (p == null || t == null)continue;
+
+                    pw.printf("%s,%s,%s,%s,%s,%s,%s,%.2fn",
+                            m.getIdMuestra(),
+                            p.getIdPaciente(),
+                            p.getNombre(),
+                            t.getIdTecnico(),
+                            t.getNombre(),
+                            m.getTipo(),
+                            m.getEstado(),
+                            m.getVol_ml());
+
+                    pw.close();
+
+                    System.out.println("Archivo crado en data/out");
+                }
+
+
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
         }
 
+        //Metodo crear ficheros binarios
+
+/*
         public void generarMuestrasAppExterna() {
 
         }
