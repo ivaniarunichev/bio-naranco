@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         LabData labdata  = new LabData();
         try {
-            //labdata.leerPacientes();
+            labdata.leerPacientes();
             labdata.leerTecnicos();
             labdata.leerMuestras();
             //labdata.generarMuestrasConsolidado();

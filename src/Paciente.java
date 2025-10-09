@@ -1,4 +1,5 @@
 public class Paciente {
+
     private String idPaciente;
     private String nombre;
     private String apellido;

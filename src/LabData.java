@@ -4,17 +4,37 @@ import java.util.HashMap;
 import java.util.List;
 
 class LabData implements Serializable {
-    //private HashMap<...> pacientes;
+    private HashMap<String, Paciente> pacientes = new HashMap<>();
     private HashMap<String, Tecnico> tecnicos = new HashMap<>();
     private List<Muestra> muestras = new ArrayList<>();
 
+
         /* Carga los datos en los arrays leyendo los ficheros de entrada en ./data/in
-        public ...
+        public ...*/
 
-        leerPacientes() {
+    public void leerPacientes() {
 
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./data/in/pacientes.csv"));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null){
+                if (linea.startsWith("#") || linea.trim().isEmpty())continue;
+                String[] parte = linea.split("\\t");
+                if (parte.length == 4){
+                    pacientes.put(parte[0], new Paciente(parte[0], parte[1], parte[2], parte[3]));
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        */
+
+    }
+
 
     public void leerTecnicos() throws IOException {
         try {
