@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Tecnico {
+public class Tecnico implements Serializable {
     private String idTecnico;
     private String nombre;
     private String apellido;

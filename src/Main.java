@@ -10,7 +10,7 @@ public class Main {
             labdata.leerPacientes();
             labdata.leerTecnicos();
             labdata.leerMuestras();
-            //labdata.generarMuestrasConsolidado();
+            labdata.generarMuestrasConsolidado();
             //labdata.generarMuestrasAppExterna();
             //labdata.generarSerializado();
 

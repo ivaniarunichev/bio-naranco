@@ -89,7 +89,7 @@ class LabData implements Serializable {
 
                     if (p == null || t == null)continue;
 
-                    pw.printf("%s,%s,%s,%s,%s,%s,%s,%.2fn",
+                    pw.printf("%s,%s,%s,%s,%s,%s,%s,%.2f%n",
                             m.getIdMuestra(),
                             p.getIdPaciente(),
                             p.getNombre(),
@@ -99,10 +99,11 @@ class LabData implements Serializable {
                             m.getEstado(),
                             m.getVol_ml());
 
-                    pw.close();
 
-                    System.out.println("Archivo crado en data/out");
                 }
+                pw.close();
+
+                System.out.println("Archivo crado en data/out");
 
 
             } catch (FileNotFoundException e) {

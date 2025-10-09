@@ -1,4 +1,6 @@
-public class Paciente {
+import java.io.Serializable;
+
+public class Paciente implements Serializable {
 
     private String idPaciente;
     private String nombre;
