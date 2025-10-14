@@ -12,7 +12,7 @@ public class Main {
             labdata.leerMuestras();
             labdata.generarMuestrasConsolidado();
             //labdata.generarMuestrasAppExterna();
-            //labdata.generarSerializado();
+            labdata.generarSerializado();
 
             System.out.println("Se ha guardado correctamente");
         } catch (IOException e) {

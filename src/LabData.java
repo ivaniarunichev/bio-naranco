@@ -123,9 +123,22 @@ class LabData implements Serializable {
         public void generarMuestrasAppExterna() {
 
         }
-
+*/
         public void generarSerializado() {
 
+
+            try {
+
+                FileOutputStream fileout = new FileOutputStream("data/out/labdata.ser");
+                ObjectOutputStream dataOS = new ObjectOutputStream(fileout);
+                dataOS.writeObject(this);
+                dataOS.close();
+                System.out.println("Objeto serializado en data/out");
+                
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
-        */
+
 }
