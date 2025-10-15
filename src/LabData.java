@@ -53,6 +53,7 @@ class LabData implements Serializable {
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
+
         }
     }
 
@@ -73,6 +74,7 @@ class LabData implements Serializable {
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
+
         }
     }
 
@@ -85,6 +87,7 @@ class LabData implements Serializable {
 
             //Sino hay la carpeta se crea
             if (!carpeta.exists()) carpeta.mkdir();
+
 
             //PrintWriter para escribir dentro del fichero
             PrintWriter pw = new PrintWriter("data/out/muestras_consolidado.csv");
@@ -118,27 +121,28 @@ class LabData implements Serializable {
         }
 
     }
-        //Parte Diego
+
+    //Parte Diego
         /*
         public void generarMuestrasAppExterna() {
 
         }
 */
-        public void generarSerializado() {
+    public void generarSerializado() {
 
 
-            try {
+        try {
 
-                FileOutputStream fileout = new FileOutputStream("data/out/labdata.ser");
-                ObjectOutputStream dataOS = new ObjectOutputStream(fileout);
-                dataOS.writeObject(this);
-                dataOS.close();
-                System.out.println("Objeto serializado en data/out");
-                
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            FileOutputStream fileout = new FileOutputStream("data/out/labdata.ser");
+            ObjectOutputStream dataOS = new ObjectOutputStream(fileout);
+            dataOS.writeObject(this);
+            dataOS.close();
+            System.out.println("Objeto serializado en data/out");
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+    }
 
 }
